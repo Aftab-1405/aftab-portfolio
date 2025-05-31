@@ -1,0 +1,108 @@
+:root{
+--primary-color: #6366f1;
+--secondary-color: #a855f7;
+--accent-color: #ec4899;
+--dark-color : #050510;
+--light-color: #f8fafc;
+--text-color: #e2e8f0;
+--text-light: #94a3b8;
+--success-color: #10b981;
+}
+
+*{
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+::selection {
+    background-color: var(--accent-color);
+    color: var(--light-color);
+}
+
+body {
+    font-family: 'Urbanist', sans-serif;  /* This is a font type for entire page. */
+    background: var(--dark-color); /* Background color for the entire page. */
+    color: var(--text-color); /* Text color for the entire page. */
+    line-height: 1.6; /* Line height for better readability. */
+    overflow-x: hidden; /* Prevent horizontal scrolling if content exceeds the screen size. */
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700; /* Set a consistent font weight for all headings. */
+}
+
+a {
+    text-decoration: none; /* Remove underline from links. */
+    color: var(--text-color); /* Set link color to text color. */
+    transition: all 0.3s ease; /* Smooth transition for link color change on hover. */
+}
+
+/* Loading Animation */
+.loader-wrapper{
+    position: fixed; /* position: fixed is like the person leaving the queue entirely -
+                        everyone behind them moves forward to fill the gap. */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--dark-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; /* Ensure it is above all other content */
+}
+
+.loader{
+    position: relative; /* Think of position: relative like moving a person in a queue
+                            while they still hold their place in line. Everyone else stays where they are.*/
+    width: 200px;
+    height: 200px;
+}
+
+.loader-text{
+    position: absolute; /* Think of position: absolute like a person stepping out of the queue
+                            to do something, but they still keep their place in line. */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.5rem; /* Font size for the loading text */
+    font-weight: 700; /* Font weight for the loading text */
+    color: var(--light-color); /* Text color for the loading text */
+    z-index: 2;
+}
+
+.loader-circle{
+    position: absolute; /* Think of position: absolute like a person stepping out of the queue
+                            to do something, but they still keep their place in line. */
+    top: 0;
+    left: 0;
+    width: 100%; /* Width of the circle */
+    height: 100%; /* Height of the circle */
+    border-radius: 50%; /* Make it a circle */
+    border: 4px solid transparent; /* Border color for the circle */
+    border-top-color: var(--primary-color); /* Make the top part of the border transparent for animation effect */
+    animation: spin 1.5s linear infinite; /* Animation for spinning effect */
+}
+
+.loader-circle:nth-child(2){
+    border-top-color: var(--secondary-color); /* Make the top part of the border transparent for animation effect */
+    animation-duration: 2s; /* duration for the second circle */
+}
+
+.loader-circle:nth-child(3){
+    border-top-color: var(--accent-color); /* Make the top part of the border transparent for animation effect */
+    animation-duration: 2.5s; /* duration for the second circle */
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg); /* Start at 0 degrees */
+    }
+    100% {
+        transform: rotate(360deg); /* Rotate to 360 degrees */
+    }
+}
+
+
+
